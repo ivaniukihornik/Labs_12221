@@ -2,6 +2,7 @@ public class AdjacencyList {
 
     public static void addEdge(int[][] adjacencyList, int i, int j) {
         adjacencyList[i][j] = 1;
+        adjacencyList[j][i] = 1;
     }
 
     public static void printAdjacencyList(int[][] adjacencyList) {
@@ -24,19 +25,12 @@ public class AdjacencyList {
         addEdge(adjacencyList, 0, 3);
         addEdge(adjacencyList, 0, 4);
 
-        addEdge(adjacencyList, 1, 0);
         addEdge(adjacencyList, 1, 2);
 
-        addEdge(adjacencyList, 2, 0);
-        addEdge(adjacencyList, 2, 1);
         addEdge(adjacencyList, 2, 4);
 
-        addEdge(adjacencyList, 3, 0);
         addEdge(adjacencyList, 3, 4);
 
-        addEdge(adjacencyList, 4, 0);
-        addEdge(adjacencyList, 4, 2);
-        addEdge(adjacencyList, 4, 3);
 
         System.out.println("Adjacency list for graph:");
         printAdjacencyList(adjacencyList);
