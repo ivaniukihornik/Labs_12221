@@ -1,6 +1,6 @@
 public class Graph {
     public int vertices;
-    public static int[][] adjacencyMatrix;
+    public int[][] adjacencyMatrix;
 
     public Graph(int numVertices) {
         this.vertices = numVertices;
@@ -9,10 +9,12 @@ public class Graph {
 
     public void addEdge(int i, int j) {
         adjacencyMatrix[i][j] = 1;
+        adjacencyMatrix[j][i] = 1;
     }
 
     public void removeEdge(int i, int j) {
         adjacencyMatrix[i][j] = 0;
+        adjacencyMatrix[j][i] = 0;
     }
 
     public void printMatrix() {
@@ -38,25 +40,14 @@ public class Graph {
 
     public static void main(String[] args) {
         Graph graph = new Graph(4);
-
         graph.addEdge(0, 1);
         graph.addEdge(0, 2);
         graph.addEdge(0, 3);
-
-        graph.addEdge(1, 0);
         graph.addEdge(1, 2);
-
-        graph.addEdge(2, 0);
-        graph.addEdge(2, 1);
-
-        graph.addEdge(3, 0);
-
         System.out.println("Adjacency matrix for graph:");
         graph.printMatrix();
 
-
-        graph.removeEdge(2, 0);
-
+        graph.removeEdge(0, 2);
         System.out.println("Adjacency matrix for graph after removing some edges:");
         graph.printMatrix();
     }
